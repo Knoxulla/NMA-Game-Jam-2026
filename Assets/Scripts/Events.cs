@@ -30,7 +30,26 @@ public class Events
         OnGameOver?.Invoke();
     }
 
-   
+    // Volume Events
+    public event Action<float> OnMasterVolChanged;
+    public void ChangeMasterVol(float newVol)
+    {
+        OnMasterVolChanged?.Invoke(newVol);
+    }
+
+    public event Action<float> OnSFXVolChanged;
+    public void ChangeSFXVol(float newVol)
+    {
+        OnSFXVolChanged?.Invoke(newVol);
+    }
+
+    public event Action<float> OnMusicVolChanged;
+    public void ChangeMusicVol(float newVol)
+    {
+        OnMusicVolChanged?.Invoke(newVol);
+    }
+
+
     internal void ClearAll()
     {
         OnGameOver = null;
