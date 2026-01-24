@@ -8,7 +8,7 @@ public class PropController : MonoBehaviour
 
     private void Awake()
     {
-        Instantiate(info.itemPrefab, transform);
+        
     }
 
     private void Start()

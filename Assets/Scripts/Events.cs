@@ -23,6 +23,11 @@ public class Events
         OnScoreUpdated?.Invoke(newScore);
     }
 
+    public event Action OnScoreReset;
+    public void ResetScore()
+    {
+        OnScoreReset?.Invoke();
+    }
 
     // Quota Set events
     public event Action<int> OnQuotaSet;
@@ -58,9 +63,4 @@ public class Events
         OnMusicVolChanged?.Invoke(newVol);
     }
 
-
-    internal void ClearAll()
-    {
-        OnGameOver = null;
-    }
 }

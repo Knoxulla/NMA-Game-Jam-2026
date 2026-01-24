@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoundInfoSO
   items:
   - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
+  rewardPosibilities: []
   quotaValue: 10
   timeLimit: 50

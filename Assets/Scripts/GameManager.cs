@@ -6,8 +6,8 @@ using UnityEngine.SocialPlatforms.Impl;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    
-  
+
+
     public int currentScore { get; private set; }
 
     [Header("Managers")]
@@ -15,18 +15,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Event Container")]
     public Events events;
-
-    private void OnEnable()
-    {
-        events.OnScoreUpdated += SetScore;
-
-    }
-
-    private void OnDisable()
-    {
-        events.OnScoreUpdated -= SetScore;
-
-    }
 
     private void Awake()
     {
@@ -50,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void SetScore(int newScore)
+    public void SetScore(int newScore)
     {
         currentScore = newScore;
     }

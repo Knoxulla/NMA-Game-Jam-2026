@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Prop
+  - HUD
   layers:
   - Default
   - TransparentFX

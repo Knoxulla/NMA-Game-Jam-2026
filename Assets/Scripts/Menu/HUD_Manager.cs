@@ -5,27 +5,37 @@ public class HUD_Manager : MonoBehaviour
 {
     [SerializeField] private TMP_Text score;
 
-    [SerializeField] int currentQuota = 0;
+    public int currentQuota = 0;
 
     private void OnEnable()
     {
+        GameManager.Instance.events.OnQuotaSet += UpdateQuotaDisplay;
         GameManager.Instance.events.OnScoreUpdated += UpdateScoreDisplay;
-        GameManager.Instance.events.OnQuotaSet += UpdateQuota;
+
     }
 
     private void OnDisable()
     {
+        
+        GameManager.Instance.events.OnQuotaSet -= UpdateQuotaDisplay;
         GameManager.Instance.events.OnScoreUpdated -= UpdateScoreDisplay;
-        GameManager.Instance.events.OnQuotaSet -= UpdateQuota;
     }
 
-    private void UpdateQuota(int newQuota)
+    private void Start()
+    {
+        //UpdateQuotaDisplay(0);
+        UpdateScoreDisplay(0);
+    }
+
+    public void UpdateQuotaDisplay(int newQuota)
     { 
         currentQuota = newQuota;
+        score.text = $"Quota: 0 / {currentQuota}";
     }
 
-    private void UpdateScoreDisplay(int newScore)
+    public void UpdateScoreDisplay(int newScore)
     {
-        score.text = $"Quota: {GameManager.Instance.currentScore} / {currentQuota}";
+        score.text = $"Quota: {newScore} / {currentQuota}";
+        Debug.Log("Score Updated");
     }
 }

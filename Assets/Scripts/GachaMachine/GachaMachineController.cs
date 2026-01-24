@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class GachaMachineController : MonoBehaviour
@@ -9,18 +11,43 @@ public class GachaMachineController : MonoBehaviour
     [SerializeField] int currentQuota = 0;
     [SerializeField] int currentNumOfItems = 0;
     [SerializeField] float currentTimeLimit = 0f;
+    bool timerOn = false;
 
-    private void OnCollisionEnter(Collision collision)
+    [SerializeField] HUD_Manager hud;
+
+
+    private void OnTriggerEnter(Collider collision)
     {
+        PlayerCollectMechanicController playerController = collision.gameObject.GetComponent<PlayerCollectMechanicController>();
+        
         if (collision.gameObject.CompareTag("Player"))
-        { 
-         
+        {
+            if (playerController.points > rounds[currentRound].quotaValue)
+            {
+                StartCoroutine(PlayInGameGachaCutscene());
+            }
+            else if (currentQuota != 0)
+            {
+                StartCoroutine(MakeGachaMachineAngry());
+            }
+            else
+            {
+
+            }
+
         }
     }
 
-    private void Start()
-    {
-        SetQuota();
+
+    IEnumerator MakeGachaMachineAngry()
+    { 
+        yield return new WaitForSeconds(1);
+
+    }
+
+    IEnumerator PlayInGameGachaCutscene()
+    { 
+        yield return new WaitForSeconds(1);    
     }
 
     public void SetQuota()
@@ -30,9 +57,22 @@ public class GachaMachineController : MonoBehaviour
         currentNumOfItems = round.items.Count;
         currentTimeLimit = round.timeLimit;
 
+        hud.UpdateQuotaDisplay(currentQuota);
+
         GameManager.Instance.events.SetQuota(currentQuota);
         GameManager.Instance.events.UpdateScore(0);
-        Debug.Log("Quota Set");
+        
+    }
+
+    IEnumerator StartTimer()
+    {
+        yield return new WaitForSeconds(currentTimeLimit);
+
+    }
+
+    private void ResolveTimer()
+    { 
+        
     }
 
     public void StartQuota() 

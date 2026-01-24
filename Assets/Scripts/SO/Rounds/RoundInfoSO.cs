@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoundInfoSO : ScriptableObject
 {
     public List <PropInfo> items;
+    public List <GameObject> rewardPosibilities;
     public int quotaValue;
     public float timeLimit;
 }

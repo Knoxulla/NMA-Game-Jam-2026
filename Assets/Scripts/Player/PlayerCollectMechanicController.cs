@@ -4,13 +4,32 @@ public class PlayerCollectMechanicController : MonoBehaviour
 {
     SphereCollider col;
 
-    [SerializeField] int points = 0;
+    public int points = 0;
     [SerializeField] float playerSize = 1f;
     [SerializeField] float divideSizeGainBy = 100;
     [SerializeField] Vector3 startingSize = Vector3.zero;
     [SerializeField] float scaleSpeed = 1f;
 
+    [SerializeField] HUD_Manager hud;
+
     bool isScaling = false;
+
+    private void OnEnable()
+    {
+        GameManager.Instance.events.OnScoreReset += ResetPoints;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.events.OnScoreReset -= ResetPoints;
+    }
+
+    private void ResetPoints()
+    {
+        points = 0;
+        hud.UpdateQuotaDisplay(0);
+        hud.UpdateScoreDisplay(0);
+    }
 
     private void Start()
     {
@@ -19,13 +38,14 @@ public class PlayerCollectMechanicController : MonoBehaviour
         startingSize = transform.localScale;
 
         points = 0;
+        hud = FindFirstObjectByType<Canvas>().GetComponent<HUD_Manager>();
         GameManager.Instance.events.UpdateScore(0);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject obj =  collision.gameObject;
-        
+        GameObject obj = collision.gameObject;
+
         if (obj.CompareTag("Prop"))
         {
             //float objSize = obj.GetComponent<Collider>().bounds.size.y;
@@ -51,7 +71,9 @@ public class PlayerCollectMechanicController : MonoBehaviour
             isScaling = true;
 
             points += propController.info.quotaValue;
-            GameManager.Instance.events.UpdateScore(GameManager.Instance.currentScore + points);
+            GameManager.Instance.SetScore(points);
+            hud.UpdateScoreDisplay(points);
+            GameManager.Instance.events.UpdateScore(points);
         }
     }
 
