@@ -330,7 +330,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 46.9
+  field of view: 58.8
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -356,8 +356,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.33586177, y: 0, z: 0, w: 0.94191134}
-  m_LocalPosition: {x: 0, y: 7.1000004, z: -8.5}
+  m_LocalRotation: {x: 0.30669188, y: 0, z: 0, w: 0.95180887}
+  m_LocalPosition: {x: -1.7, y: 12.8, z: -42.699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -913,7 +913,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 140b2e80a4108eb4296e491e1ce2ca6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -953,8 +953,8 @@ Transform:
   m_GameObject: {fileID: 703008102}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 2.5, y: -0, z: -0.1}
+  m_LocalScale: {x: 7.5, y: 7.5, z: 7.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -1244,8 +1244,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022372571}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.33586177, y: 0, z: 0, w: 0.94191134}
-  m_LocalPosition: {x: 0, y: 7.1000004, z: -8.5}
+  m_LocalRotation: {x: 0.30669188, y: 0, z: 0, w: 0.95180887}
+  m_LocalPosition: {x: -1.7, y: 12.8, z: -42.699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1269,7 +1269,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 7.1, z: -8.5}
+  FollowOffset: {x: 0, y: 12.8, z: -17.8}
 --- !u!114 &1022372575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1294,7 +1294,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 46.9
+    FieldOfView: 58.8
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1312,7 +1312,7 @@ MonoBehaviour:
       Curvature: {x: 2, y: 11}
       BarrelClipping: 0.25
       Anamorphism: 0
-  BlendHint: 0
+  BlendHint: 16
 --- !u!114 &1022372576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLookAt
-  LookAtOffset: {x: 0, y: 0, z: 0.19}
+  LookAtOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1046380555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,9 +1744,9 @@ Transform:
   m_GameObject: {fileID: 1936086993}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 0, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 6.9, y: 0, z: -15.9}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 901237909}
   - {fileID: 868097023}
@@ -1998,7 +1998,7 @@ PrefabInstance:
       objectReference: {fileID: 1622855937}
     - target: {fileID: 7732798950394601974, guid: f58d948546c1824459e5728044d7ac59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 7732798950394601974, guid: f58d948546c1824459e5728044d7ac59, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2006,7 +2006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7732798950394601974, guid: f58d948546c1824459e5728044d7ac59, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -24.9
       objectReference: {fileID: 0}
     - target: {fileID: 7732798950394601974, guid: f58d948546c1824459e5728044d7ac59, type: 3}
       propertyPath: m_LocalRotation.w
