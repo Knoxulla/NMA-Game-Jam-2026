@@ -357,7 +357,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30669188, y: 0, z: 0, w: 0.95180887}
-  m_LocalPosition: {x: 6.93, y: 12.8, z: -33.28}
+  m_LocalPosition: {x: -1.7, y: 12.8, z: -42.699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1358,7 +1358,7 @@ Transform:
   m_GameObject: {fileID: 1022372571}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30669188, y: 0, z: 0, w: 0.95180887}
-  m_LocalPosition: {x: 6.93, y: 12.8, z: -33.28}
+  m_LocalPosition: {x: -1.7, y: 12.8, z: -42.699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2407,7 +2407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2511,7 +2511,7 @@ PrefabInstance:
       objectReference: {fileID: 1622855937}
     - target: {fileID: 7732798950394601974, guid: f58d948546c1824459e5728044d7ac59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.93
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 7732798950394601974, guid: f58d948546c1824459e5728044d7ac59, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2519,7 +2519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7732798950394601974, guid: f58d948546c1824459e5728044d7ac59, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.48
+      value: -24.9
       objectReference: {fileID: 0}
     - target: {fileID: 7732798950394601974, guid: f58d948546c1824459e5728044d7ac59, type: 3}
       propertyPath: m_LocalRotation.w

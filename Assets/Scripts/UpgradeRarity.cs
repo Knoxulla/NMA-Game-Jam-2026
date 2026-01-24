@@ -6,5 +6,6 @@ public enum UpgradeRarity
     Tier2, 
     Tier3, 
     Tier4, 
-    Tier5
+    Tier5,
+    Tier6
 }

@@ -1,9 +1,11 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HUD_Manager : MonoBehaviour
 {
     [SerializeField] private TMP_Text score;
+    [SerializeField] public Slider timerSlider;
 
     public int currentQuota = 0;
 
