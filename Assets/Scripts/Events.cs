@@ -23,6 +23,15 @@ public class Events
         OnScoreUpdated?.Invoke(newScore);
     }
 
+
+    // Quota Set events
+    public event Action<int> OnQuotaSet;
+    public void SetQuota(int newQuota)
+    {
+        OnQuotaSet?.Invoke(newQuota);
+    }
+
+
     // Game Over Event
     public event Action OnGameOver;
     public void GameOver()

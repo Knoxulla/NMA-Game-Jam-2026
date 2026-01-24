@@ -1,13 +1,18 @@
+using System.Reflection;
 using UnityEngine;
 
 public class PropController : MonoBehaviour
 {
-    //Rigidbody rb;
+    public PropInfo info;
     Collider col;
+
+    private void Awake()
+    {
+        Instantiate(info.itemPrefab, transform);
+    }
 
     private void Start()
     {
-        //rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
     }
 

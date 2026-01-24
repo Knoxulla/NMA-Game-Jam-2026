@@ -4,6 +4,7 @@ public class PlayerCollectMechanicController : MonoBehaviour
 {
     SphereCollider col;
 
+    [SerializeField] int points = 0;
     [SerializeField] float playerSize = 1f;
     [SerializeField] float divideSizeGainBy = 100;
     [SerializeField] Vector3 startingSize = Vector3.zero;
@@ -16,6 +17,9 @@ public class PlayerCollectMechanicController : MonoBehaviour
         col = GetComponent<SphereCollider>();
         //playerSize = col.radius;
         startingSize = transform.localScale;
+
+        points = 0;
+        GameManager.Instance.events.UpdateScore(0);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -28,7 +32,7 @@ public class PlayerCollectMechanicController : MonoBehaviour
 
             Vector3 sizeOfPlayer = new Vector3(startingSize.x + playerSize, startingSize.y + playerSize, startingSize.z + playerSize); ;
             Vector3 objSize = obj.GetComponent<Collider>().bounds.size;
-
+            PropController propController = obj.GetComponent<PropController>();
 
             // if object larger than player, do not connect
             if (sizeOfPlayer.magnitude < objSize.magnitude)
@@ -45,6 +49,9 @@ public class PlayerCollectMechanicController : MonoBehaviour
             startingSize = transform.localScale;
 
             isScaling = true;
+
+            points += propController.info.quotaValue;
+            GameManager.Instance.events.UpdateScore(GameManager.Instance.currentScore + points);
         }
     }
 

@@ -1,18 +1,32 @@
 using UnityEngine;
 using System;
 using UnityEngine.Rendering;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     
-    public int highScore { get; private set; }
+  
+    public int currentScore { get; private set; }
 
     [Header("Managers")]
     public VolumeManager VolumeManager;
 
     [Header("Event Container")]
     public Events events;
+
+    private void OnEnable()
+    {
+        events.OnScoreUpdated += SetScore;
+
+    }
+
+    private void OnDisable()
+    {
+        events.OnScoreUpdated -= SetScore;
+
+    }
 
     private void Awake()
     {
@@ -32,15 +46,12 @@ public class GameManager : MonoBehaviour
     {
         events = new Events();
 
-        events.OnScoreUpdated += SetScore;
+        currentScore = 0;
+
     }
 
     private void SetScore(int newScore)
     {
-        if (newScore > highScore)
-        { 
-            newScore = highScore;
-            PlayerPrefs.SetInt("highScore", highScore);
-        }
+        currentScore = newScore;
     }
 }
