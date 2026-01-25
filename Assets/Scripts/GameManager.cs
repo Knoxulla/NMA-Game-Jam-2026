@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-
+    public bool isBadEnd = true;
     public int currentScore { get; private set; }
 
     [Header("Managers")]

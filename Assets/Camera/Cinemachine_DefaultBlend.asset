@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Cinemachine_DefaultBlend
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBlenderSettings
   CustomBlends:
-  - From: CinemachineCamera
-    To: '**ANY CAMERA**'
+  - From: GachaCS_CAM
+    To: FaceOn_GM
     Blend:
       Style: 1
-      Time: 5.27
+      Time: 2
       CustomCurve:
         serializedVersion: 2
         m_Curve: []

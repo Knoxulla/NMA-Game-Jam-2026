@@ -24,6 +24,7 @@ public class GachaMachineController : MonoBehaviour
     [SerializeField] List<GameObject> itemsInScene;
 
     [SerializeField] GameObject CS_Camera;
+    [SerializeField] GameObject CS_FaceOn_Camera;
 
     bool isFirstQuota = true;
 
@@ -76,7 +77,7 @@ public class GachaMachineController : MonoBehaviour
         playerMov.canMove = false;
         // do anim
         yield return new WaitForSeconds(1);
-        // "You have not hit the quote, get more!"
+        // "You have not hit the quota, get more!"
         playerMov.canMove = true;
     }
 
@@ -92,12 +93,16 @@ public class GachaMachineController : MonoBehaviour
 
         playerMov.canMove = false;
         // submit anim
-        yield return new WaitForSeconds(7f);
-        // gacha roll anim
-       
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         CS_Camera.SetActive(false);
+        CS_FaceOn_Camera.SetActive(true);
+
+        // gacha roll anim
+
+
+        yield return new WaitForSeconds(1f);
+        CS_FaceOn_Camera.SetActive(false);
         // give gacha ball anim
         yield return new WaitForSeconds(1.5f);
         // open ball
