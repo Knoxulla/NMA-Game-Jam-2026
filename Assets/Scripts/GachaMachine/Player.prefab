@@ -50,10 +50,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1032c703157a0148b769c31e1a5e0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  rollSpeed: 500
+  rollSpeed: 5
+  spdModifier: 1
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   interactAction: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inRangeOfMachine: 0
+  interactIndicator: {fileID: 0}
   gachaController: {fileID: 0}
 --- !u!114 &7112646885699680281
 MonoBehaviour:

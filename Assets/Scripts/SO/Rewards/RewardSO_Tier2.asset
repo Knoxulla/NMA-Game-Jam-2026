@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RewardSO
   rarity: 1
   speedUpgradeAmt: 0.5
-  gachaponBallObj: {fileID: 6877370154157180848, guid: c1864afa887b114498ebf92c6bf0a9ae, type: 3}
+  description: This is a reward
+  gachaponBallObj: {fileID: 6932619478638947754, guid: d492d6159022d9543af3806b56617d09, type: 3}

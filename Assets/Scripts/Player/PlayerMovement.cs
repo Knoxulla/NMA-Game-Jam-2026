@@ -12,12 +12,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputActionReference interactAction;
     public bool inRangeOfMachine = false;
 
+    public GameObject interactIndicator;
+
     public GachaMachineController gachaController;
+
+    public bool canMove = true;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         interactAction.action.started += OnInteract;
+        interactIndicator.SetActive(false);
     }
 
     //public void OnMove(InputValue value)
@@ -46,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!canMove) return;
+
         movementDir = moveAction.action.ReadValue<Vector2>();
         if (movementDir != Vector2.zero)
         {

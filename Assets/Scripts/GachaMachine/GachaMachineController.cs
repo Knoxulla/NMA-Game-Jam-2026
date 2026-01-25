@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GachaMachineController : MonoBehaviour
 {
@@ -12,12 +15,39 @@ public class GachaMachineController : MonoBehaviour
     [SerializeField] int currentNumOfItems = 0;
     [SerializeField] float currentTimeLimit = 0f;
     [SerializeField] Transform gachaponSpawnpoint;
+    [SerializeField] GameObject powerUpPopUp;
+    [SerializeField] Button BTN_powerUpClose;
+    [SerializeField] TMP_Text powerUpTitle;
+    [SerializeField] TMP_Text powerUpDesc;
+
+    [SerializeField] List<Transform> itemSpawnPoints;
+    [SerializeField] List<GameObject> itemsInScene;
+
+    [SerializeField] GameObject CS_Camera;
+
+    bool isFirstQuota = true;
+
     bool timerOn = false;
 
     [SerializeField] HUD_Manager hud;
     PlayerCollectMechanicController playerController;
     PlayerMovement playerMov;
 
+    private void Start()
+    {
+        GameManager.Instance.events.ResetScore();
+        powerUpPopUp.SetActive(false);
+        BTN_powerUpClose.onClick.AddListener(ClosePowerUpWindow);
+    }
+
+    private void ClosePowerUpWindow()
+    {
+        powerUpPopUp.SetActive(false);
+        playerMov.canMove = true;
+        Destroy(gachaponSpawnpoint.GetChild(0).gameObject);
+
+        timerOn = true;
+    }
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -27,6 +57,7 @@ public class GachaMachineController : MonoBehaviour
             playerMov = collision.gameObject.GetComponent<PlayerMovement>();
             playerMov.inRangeOfMachine = true;
             playerMov.gachaController = this;
+            playerMov.interactIndicator.SetActive(true);
         }
     }
 
@@ -35,36 +66,65 @@ public class GachaMachineController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerMov.inRangeOfMachine = false;
+            playerMov.interactIndicator.SetActive(false);
+
         }
     }
 
     IEnumerator MakeGachaMachineAngry()
     {
+        playerMov.canMove = false;
         // do anim
         yield return new WaitForSeconds(1);
         // "You have not hit the quote, get more!"
+        playerMov.canMove = true;
     }
 
     IEnumerator PlayInGameGachaCutscene()
     {
+        CS_Camera.SetActive(true);
+
+        //remove all props
+        foreach (GameObject x in itemsInScene)
+        {
+            Destroy(x);
+        }
+
+        playerMov.canMove = false;
         // submit anim
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(7f);
         // gacha roll anim
-        yield return new WaitForSeconds(1);
+       
+
+        yield return new WaitForSeconds(2f);
+        CS_Camera.SetActive(false);
         // give gacha ball anim
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         // open ball
-
-        SpawnReward();
-
+        RewardSO reward = SpawnReward();
+        yield return new WaitForSeconds(3f);
+        GameManager.Instance.events.ResetScore();
+        ShowPopUp(reward);
         currentRound++;
 
-        // put up menu with given powerup (speed boost but vague), close button starts round
+        StartQuota();
 
+        //playerMov.canMove = true;
+
+        
 
     }
 
-    private void SpawnReward()
+    private void ShowPopUp(RewardSO reward)
+    {
+        powerUpDesc.text = reward.description;
+        powerUpTitle.text = reward.rarity.ToString();
+
+        powerUpPopUp.SetActive(true);
+
+    }
+
+    private RewardSO SpawnReward()
     {
         int random = Random.Range(1, 100);
         UpgradeRarity rarityToSpawn = UpgradeRarity.Tier1;
@@ -101,13 +161,16 @@ public class GachaMachineController : MonoBehaviour
                 Instantiate(x.gachaponBallObj, gachaponSpawnpoint);
                 Debug.Log($"Spawned {rarityToSpawn} Gachapon");
                 ApplySpeedUp(x);
-                break;
+                return x;
+                
             }
             else
             {
                 Debug.Log($"Wanted to spawn: {rarityToSpawn} Gachapon, but no gachapon of that rarity in list");
             }
         }
+
+        return null;      
 
     }
 
@@ -128,11 +191,15 @@ public class GachaMachineController : MonoBehaviour
 
         hud.UpdateQuotaDisplay(currentQuota);
 
-         timerOn = true;
+        if (isFirstQuota)
+        {
+            timerOn = true;
+            isFirstQuota = false;
+        }
 
         GameManager.Instance.events.SetQuota(currentQuota);
-        GameManager.Instance.events.UpdateScore(0);
 
+        SpawnObjects();
     }
 
     private void Update()
@@ -159,12 +226,41 @@ public class GachaMachineController : MonoBehaviour
 
     public void StartQuota()
     {
+        if (currentRound >= rounds.Count)
+        {
+            // addiction end
+            Debug.Log("Succumbed to addiction");
+            return;
+        }
+
+        
+
         SetQuota();
        
     }
 
+    public void SpawnObjects()
+    {
+        List<Transform> listToChange = new List<Transform>();
+
+        foreach (Transform x in itemSpawnPoints)
+        {
+            listToChange.Add(x);
+        }
+
+        foreach (PropInfo x in rounds[currentRound].items)
+        {
+            int random = Random.Range(0, listToChange.Count - 1);
+            int randomItem = Random.Range(0, x.itemPrefabs.Count - 1);
+            GameObject item = Instantiate(x.itemPrefabs[randomItem], listToChange[random]);
+            itemsInScene.Add(item);
+            listToChange.RemoveAt(random);
+        }
+    }
+
     public void SubmitQuota()
     {
+
         if (currentRound >= rounds.Count)
         {
             // addiction end
@@ -187,9 +283,7 @@ public class GachaMachineController : MonoBehaviour
 
         timerOn = false;
 
-        
-
-        if (playerController.points > rounds[currentRound].quotaValue)
+        if (playerController.points >= rounds[currentRound].quotaValue)
         {
             // move to next round
             Debug.Log("Getting Gachapon");

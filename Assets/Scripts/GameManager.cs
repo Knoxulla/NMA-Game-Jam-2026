@@ -28,13 +28,9 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-
-    }
-    void Start()
-    {
         events = new Events();
 
-        currentScore = 0;
+        SetScore(0);
 
     }
 

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoundInfoSO
   items:
   - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
+  - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
+  - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
+  - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
   rewardPosibilities:
   - {fileID: 11400000, guid: 88154a1557ebab541b0824d1f3092ea8, type: 2}
   - {fileID: 11400000, guid: f8b89c36a3229ef4bbe97ab3b994da78, type: 2}

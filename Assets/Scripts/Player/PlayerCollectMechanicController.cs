@@ -14,6 +14,7 @@ public class PlayerCollectMechanicController : MonoBehaviour
 
     bool isScaling = false;
 
+
     private void OnEnable()
     {
         GameManager.Instance.events.OnScoreReset += ResetPoints;
@@ -37,9 +38,9 @@ public class PlayerCollectMechanicController : MonoBehaviour
         //playerSize = col.radius;
         startingSize = transform.localScale;
 
-        points = 0;
-        hud = FindFirstObjectByType<Canvas>().GetComponent<HUD_Manager>();
-        GameManager.Instance.events.UpdateScore(0);
+        
+        hud = FindFirstObjectByType<HUD_Manager>();
+        ResetPoints();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -55,10 +56,10 @@ public class PlayerCollectMechanicController : MonoBehaviour
             PropController propController = obj.GetComponent<PropController>();
 
             // if object larger than player, do not connect
-            if (sizeOfPlayer.magnitude < objSize.magnitude)
-            {
-                return;
-            }
+            //if (sizeOfPlayer.magnitude < objSize.magnitude)
+            //{
+            //    return;
+            //}
 
             playerSize += objSize.magnitude / divideSizeGainBy;
 

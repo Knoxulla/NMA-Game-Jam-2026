@@ -5,5 +5,6 @@ public class RewardSO : ScriptableObject
 {
     public UpgradeRarity rarity;
     [Tooltip("How much speed is increased by")] public float speedUpgradeAmt;
+    [Tooltip("description to be shown to player")] public string description;
     [Tooltip("feel free to use a random 3D obj from the files for now")]public GameObject gachaponBallObj;
 }
