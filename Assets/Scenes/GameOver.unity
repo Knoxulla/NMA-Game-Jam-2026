@@ -372,6 +372,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f136dcd8e580f2c4b8feb7fe771e3fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverController
+  endTXT: {fileID: 1191115265}
+  replayBTN: {fileID: 1805895532}
+  mainMenuBTN: {fileID: 1173992640}
 --- !u!1001 &146937627
 PrefabInstance:
   m_ObjectHideFlags: 0

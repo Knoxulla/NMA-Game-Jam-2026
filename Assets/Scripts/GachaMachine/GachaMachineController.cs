@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GachaMachineController : MonoBehaviour
@@ -41,7 +40,7 @@ public class GachaMachineController : MonoBehaviour
         BTN_powerUpClose.onClick.AddListener(ClosePowerUpWindow);
     }
 
-    private void ClosePowerUpWindow()
+    public void ClosePowerUpWindow()
     {
         powerUpPopUp.SetActive(false);
         playerMov.canMove = true;
@@ -84,6 +83,7 @@ public class GachaMachineController : MonoBehaviour
     IEnumerator PlayInGameGachaCutscene()
     {
         CS_Camera.SetActive(true);
+        timerOn = false;
 
         //remove all props
         foreach (GameObject x in itemsInScene)
@@ -270,6 +270,8 @@ public class GachaMachineController : MonoBehaviour
         {
             // addiction end
             Debug.Log("Succumbed to addiction");
+            GameManager.Instance.isBadEnd = true;
+            SceneManager.LoadScene("GameOver");
             return;
         }
 
@@ -279,14 +281,20 @@ public class GachaMachineController : MonoBehaviour
             return;
         }
 
-        if (playerController.points < rounds[currentRound].quotaValue)
+        if (playerController.points < rounds[currentRound].quotaValue && timerOn)
         {
             // not enough points, should be going to get more
             StartCoroutine(MakeGachaMachineAngry());
             return;
         }
 
-        timerOn = false;
+        if (playerController.points < rounds[currentRound].quotaValue)
+        {
+            // not enough points, should be going to get more
+            GameManager.Instance.isBadEnd = false;
+            SceneManager.LoadScene("GameOver");
+            return;
+        }
 
         if (playerController.points >= rounds[currentRound].quotaValue)
         {

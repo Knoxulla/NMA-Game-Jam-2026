@@ -6,7 +6,7 @@ public class HUD_Manager : MonoBehaviour
 {
     [SerializeField] private TMP_Text score;
     [SerializeField] public Slider timerSlider;
-
+[SerializeField] private TMP_Text label;
     public int currentQuota = 0;
 
     private void OnEnable()
