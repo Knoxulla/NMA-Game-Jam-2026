@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa8fb73a45e2b1544818c73aedb3cef8
+guid: d383fee14360aeb41b9a11c152e265a9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buttonMainMenu_0
+      name: pleaseRollResponsiblybutabitbetter_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1080
-        width: 1346
-        height: 540
+        x: 80
+        y: 235
+        width: 1353
+        height: 673
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,52 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8328035d72536a46b806cdbb44b9b6c
-      internalID: 897635182
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buttonMainMenu_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 540
-        width: 1346
-        height: 540
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64c6cb70e1015744eb5367f9ea657c41
-      internalID: 315334072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buttonMainMenu_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1346
-        height: 540
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e651e2f612f504d4689883a9ae52eb87
-      internalID: 1684717699
+      spriteID: 41043132e355c134b9d5d85cbd79214f
+      internalID: 993191694
       vertices: []
       indices: 
       edges: []
@@ -218,7 +174,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3d1b452759be00749a1daae78aeaa8d0
+    spriteID: df0069807007c984bbd7a0db2b45e0be
     internalID: 0
     vertices: []
     indices: 
@@ -226,13 +182,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":3.0},"gridSpriteSize":{"x":2160.0,"y":540.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      buttonMainMenu_0: 897635182
-      buttonMainMenu_1: 315334072
-      buttonMainMenu_2: 1684717699
+      pleaseRollResponsiblybutabitbetter_0: 993191694
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

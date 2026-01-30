@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: fa8fb73a45e2b1544818c73aedb3cef8
+guid: 07ce931f35382bf438b0fb31ce7f2a43
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,8 +37,8 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
+    wrapU: 0
+    wrapV: 0
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
@@ -52,7 +52,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -149,7 +149,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buttonMainMenu_0
+      name: buttonExit_0
       rect:
         serializedVersion: 2
         x: 0
@@ -164,18 +164,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8328035d72536a46b806cdbb44b9b6c
-      internalID: 897635182
+      spriteID: 56594a38b4dd5d744babf3e298023454
+      internalID: -236354089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttonMainMenu_1
+      name: buttonExit_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 540
+        y: 538
         width: 1346
         height: 540
       alignment: 0
@@ -186,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64c6cb70e1015744eb5367f9ea657c41
-      internalID: 315334072
+      spriteID: cf3b7294b3e47774da7607cb88f1a70d
+      internalID: -1613790746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttonMainMenu_2
+      name: buttonExit_2
       rect:
         serializedVersion: 2
         x: 0
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e651e2f612f504d4689883a9ae52eb87
-      internalID: 1684717699
+      spriteID: d31470a5cf8722b41a622c3df872aa0f
+      internalID: -265267569
       vertices: []
       indices: 
       edges: []
@@ -218,7 +218,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3d1b452759be00749a1daae78aeaa8d0
+    spriteID: f62ff890bb413f540a56694bd9924498
     internalID: 0
     vertices: []
     indices: 
@@ -230,9 +230,9 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":3.0},"gridSpriteSize":{"x":2160.0,"y":540.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      buttonMainMenu_0: 897635182
-      buttonMainMenu_1: 315334072
-      buttonMainMenu_2: 1684717699
+      buttonExit_0: -236354089
+      buttonExit_1: -1613790746
+      buttonExit_2: -265267569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

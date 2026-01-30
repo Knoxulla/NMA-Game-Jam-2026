@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa8fb73a45e2b1544818c73aedb3cef8
+guid: 035a950eb21e5004c88694664930d903
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,7 +149,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buttonMainMenu_0
+      name: buttonPlay_0
       rect:
         serializedVersion: 2
         x: 0
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8328035d72536a46b806cdbb44b9b6c
-      internalID: 897635182
+      spriteID: de05be21e7246ab4392d6c6e3a0b0156
+      internalID: 31366427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttonMainMenu_1
+      name: buttonPlay_1
       rect:
         serializedVersion: 2
         x: 0
@@ -186,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64c6cb70e1015744eb5367f9ea657c41
-      internalID: 315334072
+      spriteID: 7bc57609875f5cf469f17fc09898183e
+      internalID: -1108015100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttonMainMenu_2
+      name: buttonPlay_2
       rect:
         serializedVersion: 2
         x: 0
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e651e2f612f504d4689883a9ae52eb87
-      internalID: 1684717699
+      spriteID: deb84434056e71d4b84cb712d36b6c13
+      internalID: 1767720843
       vertices: []
       indices: 
       edges: []
@@ -218,7 +218,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3d1b452759be00749a1daae78aeaa8d0
+    spriteID: d1cddc212f4974d4d932633c9ba5ffff
     internalID: 0
     vertices: []
     indices: 
@@ -230,9 +230,9 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":3.0},"gridSpriteSize":{"x":2160.0,"y":540.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      buttonMainMenu_0: 897635182
-      buttonMainMenu_1: 315334072
-      buttonMainMenu_2: 1684717699
+      buttonPlay_0: 31366427
+      buttonPlay_1: -1108015100
+      buttonPlay_2: 1767720843
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
