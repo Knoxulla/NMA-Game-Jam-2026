@@ -8252,6 +8252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gatcha Machine
       objectReference: {fileID: 0}
+    - target: {fileID: 3965435600567947402, guid: dcdb0d51212eff14d8f14c3cc88bd43a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4184162499627279285, guid: dcdb0d51212eff14d8f14c3cc88bd43a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

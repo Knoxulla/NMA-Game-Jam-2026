@@ -29,3 +29,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 98f124882c3f45d42afbed46b5503c24, type: 2}
   quotaValue: 30
   timeLimit: 50
+  startRoundText: 
+  endRoundText: 
