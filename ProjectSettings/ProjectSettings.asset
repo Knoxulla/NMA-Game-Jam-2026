@@ -16,14 +16,14 @@ PlayerSettings:
   productName: NMA_GameJam_2026
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 0
   m_SplashScreenOverlayOpacity: 1
-  m_SplashScreenAnimation: 2
-  m_SplashScreenLogoStyle: 0
-  m_SplashScreenDrawMode: 1
-  m_SplashScreenBackgroundAnimationZoom: 0.5
+  m_SplashScreenAnimation: 1
+  m_SplashScreenLogoStyle: 1
+  m_SplashScreenDrawMode: 0
+  m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
   m_SplashScreenBackgroundLandscapeAspect: 1
   m_SplashScreenBackgroundPortraitAspect: 1
@@ -39,11 +39,7 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos:
-  - logo: {fileID: 861482075, guid: 4725f01b215ca824386210a7ba1b961f, type: 3}
-    duration: 3
-  - logo: {fileID: 993191694, guid: d383fee14360aeb41b9a11c152e265a9, type: 3}
-    duration: 2.8
+  m_SplashScreenLogos: []
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
