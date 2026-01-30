@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d8517967d70c14da4e538892f4f387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PropController
-  info: {fileID: 0}
+  info: {fileID: 11400000, guid: e2d8758fb67b8ba479cfe60021cd5cc0, type: 2}
 --- !u!65 &1925466221843887231
 BoxCollider:
   m_ObjectHideFlags: 0

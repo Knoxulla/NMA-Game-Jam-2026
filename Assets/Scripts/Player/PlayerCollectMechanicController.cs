@@ -51,7 +51,7 @@ public class PlayerCollectMechanicController : MonoBehaviour
         {
             //float objSize = obj.GetComponent<Collider>().bounds.size.y;
 
-            Vector3 sizeOfPlayer = new Vector3(startingSize.x + playerSize, startingSize.y + playerSize, startingSize.z + playerSize); ;
+            Vector3 sizeOfPlayer = new Vector3(playerSize, startingSize.y + playerSize, startingSize.z + playerSize); ;
             Vector3 objSize = obj.GetComponent<Collider>().bounds.size;
             PropController propController = obj.GetComponent<PropController>();
 
@@ -67,7 +67,7 @@ public class PlayerCollectMechanicController : MonoBehaviour
             obj.transform.parent = transform;
             obj.GetComponent<PropController>().MergeToMain();
             //transform.localScale = new Vector3(sizeOfPlayer.x + playerSize, sizeOfPlayer.y + playerSize, sizeOfPlayer.z + playerSize);
-            startingSize = transform.localScale;
+            //startingSize = transform.localScale;
 
             isScaling = true;
 

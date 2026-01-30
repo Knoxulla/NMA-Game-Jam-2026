@@ -30,6 +30,6 @@ public class CutsceneManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(10);
         openingCamAnimator.SetBool(CS_CONTROL_KEY, false);
 
-        //openingCS_Cam.SetActive(false);
+        openingCS_Cam.SetActive(false);
     }
 }

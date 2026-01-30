@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: daa94bb33523d2348b2615bf31e6c364, type: 3}
-  m_Name: PropInfo_FamilyAlbum
+  m_Name: PropInfo_5Cash
   m_EditorClassIdentifier: Assembly-CSharp::PropInfo
-  itemName: Family Album
-  rarity: 1
-  quotaValue: 10
+  itemName: 
+  rarity: 0
+  quotaValue: 0
   itemPrefabs:
-  - {fileID: 1291650538605431844, guid: 114becd52f33dde4087fb71c423b05ff, type: 3}
+  - {fileID: 0}

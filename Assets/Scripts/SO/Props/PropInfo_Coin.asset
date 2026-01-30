@@ -16,4 +16,4 @@ MonoBehaviour:
   rarity: 0
   quotaValue: 0
   itemPrefabs:
-  - {fileID: 950630437989337323, guid: 46e630108731cb844bb66a14ae67c023, type: 3}
+  - {fileID: 7711190805004034362, guid: 60e5091061090ad43a49094b2db68269, type: 3}

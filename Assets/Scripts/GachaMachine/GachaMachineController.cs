@@ -27,14 +27,15 @@ public class GachaMachineController : MonoBehaviour
 
     bool isFirstQuota = true;
 
-    bool timerOn = false;
+    public bool timerOn = false;
 
     [SerializeField] HUD_Manager hud;
     PlayerCollectMechanicController playerController;
-    PlayerMovement playerMov;
+    public PlayerMovement playerMov;
 
     private void Start()
     {
+        currentRound = 0;
         GameManager.Instance.events.ResetScore();
         powerUpPopUp.SetActive(false);
         BTN_powerUpClose.onClick.AddListener(ClosePowerUpWindow);
@@ -43,11 +44,17 @@ public class GachaMachineController : MonoBehaviour
     public void ClosePowerUpWindow()
     {
         powerUpPopUp.SetActive(false);
-        playerMov.canMove = true;
+        
         Destroy(gachaponSpawnpoint.GetChild(0).gameObject);
 
-        timerOn = true;
+        if (currentRound < rounds.Count)
+        {
+            DialogueController.Instance.ShowText(rounds[currentRound].startRoundText);
+
+        }
     }
+
+
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -74,14 +81,23 @@ public class GachaMachineController : MonoBehaviour
     IEnumerator MakeGachaMachineAngry()
     {
         playerMov.canMove = false;
+
+
         // do anim
         yield return new WaitForSeconds(1);
-        // "You have not hit the quota, get more!"
+
+        CS_FaceOn_Camera.SetActive(true);
+
+        DialogueController.Instance.ShowText("You have not hit the quota, get more!"); // "You have not hit the quota, get more!"
+         yield return new WaitForSeconds(3);
         playerMov.canMove = true;
+        CS_FaceOn_Camera.SetActive(false);
     }
 
     IEnumerator PlayInGameGachaCutscene()
     {
+        DialogueController.Instance.ShowText(rounds[currentRound].endRoundText);
+
         CS_Camera.SetActive(true);
         timerOn = false;
 
@@ -186,6 +202,8 @@ public class GachaMachineController : MonoBehaviour
 
     private void SetQuota()
     {
+
+
         round = rounds[currentRound];
         currentQuota = round.quotaValue;
         currentNumOfItems = round.items.Count;
@@ -229,6 +247,7 @@ public class GachaMachineController : MonoBehaviour
         }
     }
 
+
     public void StartQuota()
     {
         if (currentRound >= rounds.Count)
@@ -238,7 +257,7 @@ public class GachaMachineController : MonoBehaviour
             return;
         }
 
-        
+        playerController.points = 0;
 
         SetQuota();
        

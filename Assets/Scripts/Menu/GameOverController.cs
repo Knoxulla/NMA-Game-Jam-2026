@@ -20,8 +20,8 @@ public class GameOverController : MonoBehaviour
 
         replayBTN.onClick.AddListener(ReplayGame);
         mainMenuBTN.onClick.AddListener(BackToMain);
-
-
+        
+        SceneManager.UnloadSceneAsync("GameScene");
     }
 
     private void BackToMain()
