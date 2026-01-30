@@ -202,7 +202,11 @@ public class GachaMachineController : MonoBehaviour
 
     private void SetQuota()
     {
-
+        if (isFirstQuota)
+        {
+            DialogueController.Instance.ShowText(rounds[currentRound].startRoundText);
+            isFirstQuota = false;
+        }
 
         round = rounds[currentRound];
         currentQuota = round.quotaValue;

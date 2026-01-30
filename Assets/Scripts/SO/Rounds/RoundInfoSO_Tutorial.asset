@@ -42,3 +42,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 98f124882c3f45d42afbed46b5503c24, type: 2}
   quotaValue: 10
   timeLimit: 60
+  startRoundText: Bring me divine sustenance so that my roots shall flourish. Your
+    efforts will be rewarded.
+  endRoundText: As promised, a reward for your hard work.
