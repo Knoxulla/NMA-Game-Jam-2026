@@ -19,9 +19,7 @@ public class GameOverController : MonoBehaviour
         // when vid ends, do credits
 
         replayBTN.onClick.AddListener(ReplayGame);
-        mainMenuBTN.onClick.AddListener(BackToMain);
-        
-        SceneManager.UnloadSceneAsync("GameScene");
+        mainMenuBTN.onClick.AddListener(BackToMain);     
     }
 
     private void BackToMain()

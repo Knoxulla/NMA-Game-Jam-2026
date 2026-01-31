@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RewardSO
   rarity: 5
   speedUpgradeAmt: 4
-  description: This is a reward
+  description: <color="red">G<color="yellow">O<color="green">D<color="blue">L<color="purple">Y
+    <color="orange">LUCK!!
   gachaponBallObj: {fileID: 6932619478638947754, guid: d492d6159022d9543af3806b56617d09, type: 3}

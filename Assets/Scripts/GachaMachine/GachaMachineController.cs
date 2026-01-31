@@ -26,6 +26,7 @@ public class GachaMachineController : MonoBehaviour
     [SerializeField] GameObject CS_FaceOn_Camera;
 
     bool isFirstQuota = true;
+    [SerializeField] bool isLastQuota = false;
 
     public bool timerOn = false;
 
@@ -65,6 +66,18 @@ public class GachaMachineController : MonoBehaviour
             playerMov.inRangeOfMachine = true;
             playerMov.gachaController = this;
             playerMov.interactIndicator.SetActive(true);
+
+            StartCoroutine(WaitToStartFirstQuota());
+        }
+    }
+
+    IEnumerator WaitToStartFirstQuota()
+    {
+        yield return new WaitForSecondsRealtime(7);
+
+        if (isFirstQuota)
+        {
+            StartQuota();
         }
     }
 
@@ -74,7 +87,6 @@ public class GachaMachineController : MonoBehaviour
         {
             playerMov.inRangeOfMachine = false;
             playerMov.interactIndicator.SetActive(false);
-
         }
     }
 
@@ -138,6 +150,15 @@ public class GachaMachineController : MonoBehaviour
 
     private void ShowPopUp(RewardSO reward)
     {
+        if (isLastQuota)
+        {
+            // addiction end
+            Debug.Log("Succumbed to addiction");
+            GameManager.Instance.isBadEnd = true;
+            SceneManager.LoadScene("GameOver");
+            return;
+        }
+
         powerUpDesc.text = reward.description;
         powerUpTitle.text = reward.rarity.ToString();
 
@@ -205,6 +226,7 @@ public class GachaMachineController : MonoBehaviour
         if (isFirstQuota)
         {
             DialogueController.Instance.ShowText(rounds[currentRound].startRoundText);
+            timerOn = true;
             isFirstQuota = false;
         }
 
@@ -217,12 +239,6 @@ public class GachaMachineController : MonoBehaviour
         hud.timerSlider.value = currentTimeLimit;
 
         hud.UpdateQuotaDisplay(currentQuota);
-
-        if (isFirstQuota)
-        {
-            timerOn = true;
-            isFirstQuota = false;
-        }
 
         GameManager.Instance.events.SetQuota(currentQuota);
 
@@ -288,14 +304,9 @@ public class GachaMachineController : MonoBehaviour
 
     public void SubmitQuota()
     {
-
-        if (currentRound >= rounds.Count)
-        {
-            // addiction end
-            Debug.Log("Succumbed to addiction");
-            GameManager.Instance.isBadEnd = true;
-            SceneManager.LoadScene("GameOver");
-            return;
+        if (currentRound+1 >= rounds.Count)
+        { 
+            isLastQuota = true;
         }
 
         if (currentQuota == 0)
