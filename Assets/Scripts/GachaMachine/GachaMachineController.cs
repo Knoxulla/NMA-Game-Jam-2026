@@ -24,6 +24,7 @@ public class GachaMachineController : MonoBehaviour
 
     [SerializeField] GameObject CS_Camera;
     [SerializeField] GameObject CS_FaceOn_Camera;
+    Animator animator;
 
     bool isFirstQuota = true;
     [SerializeField] bool isLastQuota = false;
@@ -34,8 +35,12 @@ public class GachaMachineController : MonoBehaviour
     PlayerCollectMechanicController playerController;
     public PlayerMovement playerMov;
 
+    const string ANRGY_KEY = "isAngry";
+
     private void Start()
     {
+        animator = GetComponent<Animator>();
+
         currentRound = 0;
         GameManager.Instance.events.ResetScore();
         powerUpPopUp.SetActive(false);
@@ -221,6 +226,11 @@ public class GachaMachineController : MonoBehaviour
         playerMov.spdModifier += reward.speedUpgradeAmt;
     }
 
+    public void MakeAngry()
+    {
+        animator.SetTrigger(ANRGY_KEY);
+   }
+
     private void SetQuota()
     {
         if (isFirstQuota)
@@ -247,14 +257,15 @@ public class GachaMachineController : MonoBehaviour
 
     private void Update()
     {
-        if (currentTimeLimit <= 0.0f)
+        if (currentTimeLimit <= 0.0f && isFirstQuota == false)
         {
             currentTimeLimit = 0.0f;
 
-            if (playerController.points < currentQuota)
-            {
-                // do "bad" end aka no more gambling addiction
-            }
+            //if (playerController.points < currentQuota)
+            //{
+                GameManager.Instance.isBadEnd = false;
+                SceneManager.LoadScene("GameOver");
+            //}
 
             timerOn = false;
         }
