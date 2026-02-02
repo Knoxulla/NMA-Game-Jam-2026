@@ -13,8 +13,13 @@ public class GameManager : MonoBehaviour
     [Header("Managers")]
     public VolumeManager VolumeManager;
 
+    [Header("Instanced Menus")]
+    [SerializeField] GameObject optMenu;
+
     [Header("Event Container")]
     public Events events;
+
+    [SerializeField] bool isPaused = false;
 
     private void Awake()
     {
@@ -34,8 +39,44 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
     public void SetScore(int newScore)
     {
         currentScore = newScore;
+    }
+
+    public void OptionMenu()
+    {
+        if (!isPaused)
+        {
+            OpenOptions();
+        }
+        else 
+        {
+            CloseOptions();
+        }
+
+        isPaused = !isPaused;
+    }
+
+    private void OpenOptions()
+    {
+        events.PauseGame();
+        Instantiate(optMenu);
+
+    }
+
+    private void CloseOptions()
+    {
+        events.PauseGame();
     }
 }

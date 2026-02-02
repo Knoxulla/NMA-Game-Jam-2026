@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionsManager : MonoBehaviour
@@ -11,6 +12,14 @@ public class OptionsManager : MonoBehaviour
     [SerializeField] Slider masterVolSlider;
     [SerializeField] Slider SFXVolSlider;
     [SerializeField] Slider musicVolSlider;
+
+    [Header("In Game Button Set")]
+    [SerializeField] GameObject inGameBTN;
+    [SerializeField, Tooltip("Resume BTN")] Button closeOptionsBTN_Game;// resume
+    [SerializeField] Button mainMenuBTN_Game;
+    [Header("Main Menu Button Set")]
+    [SerializeField] GameObject mainMenuBTN;
+    [SerializeField] Button closeOptionsBTN_MainMenu;
 
     private void Start()
     {
@@ -31,8 +40,45 @@ public class OptionsManager : MonoBehaviour
         { 
             SetMusicVol();
         }
+
+        if (PlayerPrefs.HasKey("sfxVol"))
+        {
+            LoadSFXVolume();
+        }
+        else
+        {
+            SetMusicVol();
+        }
+
+        inGameBTN.SetActive(false);
+        mainMenuBTN.SetActive(false);
+
+        closeOptionsBTN_MainMenu.onClick.AddListener(CloseOptions);
+        closeOptionsBTN_Game.onClick.AddListener(CloseOptions);
+        mainMenuBTN_Game.onClick.AddListener(ToMainMenu);
+        ChangeBackBTNVis();
+        PauseGame();
     }
 
+    private void ToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    private void ChangeBackBTNVis()
+    {
+        if (SceneManager.GetActiveScene().name.Equals("GameScene"))
+        {
+            inGameBTN.SetActive(true);
+            mainMenuBTN.SetActive(false);
+        }
+
+        else if (SceneManager.GetActiveScene().name.Equals("MainMenu"))
+        {
+            inGameBTN.SetActive(false);
+            mainMenuBTN.SetActive(true);
+        }
+    }
 
     public void SetMasterVol()
     { 
@@ -76,4 +122,14 @@ public class OptionsManager : MonoBehaviour
         SetSFXVol();
     }
 
+    private void CloseOptions()
+    {
+        Destroy(gameObject);
+        Time.timeScale = 1;
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
 }

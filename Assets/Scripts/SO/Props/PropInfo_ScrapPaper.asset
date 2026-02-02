@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa94bb33523d2348b2615bf31e6c364, type: 3}
+  m_Name: PropInfo_ScrapPaper
+  m_EditorClassIdentifier: Assembly-CSharp::PropInfo
+  itemName: Scrap Paper
+  rarity: 0
+  quotaValue: 10
+  itemPrefabs:
+  - {fileID: 7404023440811637080, guid: bd19db55c3885c946b01f8f5e6d6c888, type: 3}
+  - {fileID: 3054581452546175902, guid: 3164ac72fde40a14b9d3796fe15a760b, type: 3}
+  - {fileID: 6009087201982374717, guid: d7b765c0dce113d4182579a21f02c872, type: 3}

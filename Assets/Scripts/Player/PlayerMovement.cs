@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movementDir;
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private InputActionReference interactAction;
+    [SerializeField] private InputActionReference pauseAction;
     public bool inRangeOfMachine = false;
 
     public GameObject interactIndicator;
@@ -22,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         interactAction.action.started += OnInteract;
+        pauseAction.action.started += OnPause;
+        
         interactIndicator.SetActive(false);
     }
 
@@ -38,6 +41,14 @@ public class PlayerMovement : MonoBehaviour
         if (ctx.started && inRangeOfMachine)
         {
             gachaController?.SubmitQuota();
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started)
+        {
+            GameManager.Instance.OptionMenu();
         }
     }
 

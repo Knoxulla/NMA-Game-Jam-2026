@@ -54,6 +54,7 @@ MonoBehaviour:
   spdModifier: 1
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   interactAction: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  pauseAction: {fileID: -5976265437451196315, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inRangeOfMachine: 0
   interactIndicator: {fileID: 0}
   gachaController: {fileID: 0}
@@ -74,8 +75,10 @@ MonoBehaviour:
   playerSize: 1
   divideSizeGainBy: 25
   startingSize: {x: 0, y: 0, z: 0}
+  colliderRadius: 0
   scaleSpeed: 1
   hud: {fileID: 0}
+  isScaling: 0
 --- !u!54 &6412891775732467536
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -9,8 +9,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -54.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -48,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
       propertyPath: m_Name
       value: Cash5$
@@ -58,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8623198947937098926, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.65
       objectReference: {fileID: 0}
     - target: {fileID: 8623198947937098926, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -81,7 +97,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -8900453971066345988, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2116657c80640c541b2b8a82ff8f59e4, type: 3}
@@ -111,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d8517967d70c14da4e538892f4f387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PropController
-  info: {fileID: 11400000, guid: e2d8758fb67b8ba479cfe60021cd5cc0, type: 2}
+  info: {fileID: 11400000, guid: aece98f3b510f914b9840edc35147e91, type: 2}
 --- !u!65 &1925466221843887231
 BoxCollider:
   m_ObjectHideFlags: 0

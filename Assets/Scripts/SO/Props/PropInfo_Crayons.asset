@@ -17,3 +17,8 @@ MonoBehaviour:
   quotaValue: 20
   itemPrefabs:
   - {fileID: 4094469567809480993, guid: 52ae4aebc46fd874a96b8896b8add13f, type: 3}
+  - {fileID: 5021970794047675285, guid: dfe89150a5f0e88419baf78f5a07f9d4, type: 3}
+  - {fileID: 4500906021444485726, guid: fffe24d1f25b6c84599a005c739d6db9, type: 3}
+  - {fileID: 5524824922699239926, guid: df09cf5bc4325984e977f74ae0c7333c, type: 3}
+  - {fileID: 5121325794369932948, guid: 0077dbe0ef6ebcc4fbe08333336b2079, type: 3}
+  - {fileID: 9005294376838668828, guid: d70493d725050e94e932bc3a784c0a65, type: 3}

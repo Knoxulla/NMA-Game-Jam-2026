@@ -5,14 +5,17 @@ public class PlayerCollectMechanicController : MonoBehaviour
     SphereCollider col;
 
     public int points = 0;
-    [SerializeField] float playerSize = 1f;
+    public float playerSize = 1f;
     [SerializeField] float divideSizeGainBy = 100;
-    [SerializeField] Vector3 startingSize = Vector3.zero;
+    public Vector3 startingSize = Vector3.zero;
+    public float colliderRadius = 0f;
     [SerializeField] float scaleSpeed = 1f;
 
     [SerializeField] HUD_Manager hud;
 
-    bool isScaling = false;
+    public bool isScaling = false;
+
+    
 
 
     private void OnEnable()
@@ -37,7 +40,7 @@ public class PlayerCollectMechanicController : MonoBehaviour
         col = GetComponent<SphereCollider>();
         //playerSize = col.radius;
         startingSize = transform.localScale;
-
+        colliderRadius = col.radius;
         
         hud = FindFirstObjectByType<HUD_Manager>();
         ResetPoints();

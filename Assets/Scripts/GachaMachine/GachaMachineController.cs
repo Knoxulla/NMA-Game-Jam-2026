@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class GachaMachineController : MonoBehaviour
 {
-    [SerializeField] RoundInfoSO round;
+
+    [Header("Round Handling"),SerializeField] RoundInfoSO round;
     [SerializeField] List<RoundInfoSO> rounds;
     [SerializeField] int currentRound = 0;
     [SerializeField] int currentQuota = 0;
@@ -18,24 +19,37 @@ public class GachaMachineController : MonoBehaviour
     [SerializeField] Button BTN_powerUpClose;
     [SerializeField] TMP_Text powerUpTitle;
     [SerializeField] TMP_Text powerUpDesc;
+    [SerializeField] GameObject tutorialObj;
+    [SerializeField] GameObject testInfo;
 
-    [SerializeField] List<Transform> itemSpawnPoints;
+    [Header("Item Management"), SerializeField] List<Transform> itemSpawnPoints;
     [SerializeField] List<GameObject> itemsInScene;
 
-    [SerializeField] GameObject CS_Camera;
+    [Header("Cutscene Controls"), SerializeField] GameObject CS_Camera;
     [SerializeField] GameObject CS_FaceOn_Camera;
     Animator animator;
 
     bool isFirstQuota = true;
-    [SerializeField] bool isLastQuota = false;
-
+    bool isLastQuota = false;
     public bool timerOn = false;
 
-    [SerializeField] HUD_Manager hud;
+    [Header("Connections"),SerializeField] HUD_Manager hud;
     PlayerCollectMechanicController playerController;
     public PlayerMovement playerMov;
 
-    const string ANRGY_KEY = "isAngry";
+    const string ANGRY_KEY = "isAngry";
+
+    bool isPaused = false;
+
+    private void OnEnable()
+    {
+        GameManager.Instance.events.OnPauseGame += HandlePause;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.events.OnPauseGame -= HandlePause;
+    }
 
     private void Start()
     {
@@ -45,6 +59,8 @@ public class GachaMachineController : MonoBehaviour
         GameManager.Instance.events.ResetScore();
         powerUpPopUp.SetActive(false);
         BTN_powerUpClose.onClick.AddListener(ClosePowerUpWindow);
+
+        
     }
 
     public void ClosePowerUpWindow()
@@ -60,7 +76,10 @@ public class GachaMachineController : MonoBehaviour
         }
     }
 
-
+    private void HandlePause()
+    {
+        isPaused = !isPaused;
+    }
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -84,6 +103,8 @@ public class GachaMachineController : MonoBehaviour
         {
             StartQuota();
         }
+
+        // add tutorial info on ground (interact + WASD)
     }
 
     private void OnTriggerExit(Collider collision)
@@ -102,17 +123,21 @@ public class GachaMachineController : MonoBehaviour
 
         // do anim
         yield return new WaitForSeconds(1);
+        MakeAngry(true);
 
         CS_FaceOn_Camera.SetActive(true);
 
         DialogueController.Instance.ShowText("You have not hit the quota, get more!"); // "You have not hit the quota, get more!"
          yield return new WaitForSeconds(3);
+        MakeAngry(false);
         playerMov.canMove = true;
         CS_FaceOn_Camera.SetActive(false);
     }
 
     IEnumerator PlayInGameGachaCutscene()
     {
+        MakeAngry(false);
+
         DialogueController.Instance.ShowText(rounds[currentRound].endRoundText);
 
         CS_Camera.SetActive(true);
@@ -176,6 +201,14 @@ public class GachaMachineController : MonoBehaviour
         int random = Random.Range(1, 100);
         UpgradeRarity rarityToSpawn = UpgradeRarity.Tier1;
 
+        if (isFirstQuota)
+        {
+            random += 65;
+            isFirstQuota = false;
+            tutorialObj.SetActive(false);
+            testInfo.SetActive(false);
+        }    
+
         if (random <= 40 && random > 0)
         {
             rarityToSpawn = UpgradeRarity.Tier1;
@@ -186,7 +219,7 @@ public class GachaMachineController : MonoBehaviour
         }
         else if (random <= 80 && random > 65)
         {
-            rarityToSpawn = UpgradeRarity.Tier2;
+            rarityToSpawn = UpgradeRarity.Tier3;
         }
         else if (random <= 90 && random > 80)
         {
@@ -196,7 +229,7 @@ public class GachaMachineController : MonoBehaviour
         {
             rarityToSpawn = UpgradeRarity.Tier5;
         }
-        else if (random <= 100 && random > 97)
+        else if (random > 97)
         {
             rarityToSpawn = UpgradeRarity.Tier5;
         }
@@ -226,9 +259,9 @@ public class GachaMachineController : MonoBehaviour
         playerMov.spdModifier += reward.speedUpgradeAmt;
     }
 
-    public void MakeAngry()
+    public void MakeAngry(bool check)
     {
-        animator.SetTrigger(ANRGY_KEY);
+        animator.SetBool(ANGRY_KEY, check);
    }
 
     private void SetQuota()
@@ -236,9 +269,15 @@ public class GachaMachineController : MonoBehaviour
         if (isFirstQuota)
         {
             DialogueController.Instance.ShowText(rounds[currentRound].startRoundText);
+            tutorialObj.SetActive(true);
+            testInfo.SetActive(true);
             timerOn = true;
-            isFirstQuota = false;
         }
+
+        playerController.startingSize = new Vector3(1f,1f,1f);
+        playerController.GetComponent<SphereCollider>().radius = playerController.colliderRadius;
+        playerController.playerSize = 1;
+        playerController.isScaling = true;
 
         round = rounds[currentRound];
         currentQuota = round.quotaValue;
@@ -257,6 +296,11 @@ public class GachaMachineController : MonoBehaviour
 
     private void Update()
     {
+        if (isPaused)
+        {
+            return;
+        }
+
         if (currentTimeLimit <= 0.0f && isFirstQuota == false)
         {
             currentTimeLimit = 0.0f;
@@ -278,16 +322,8 @@ public class GachaMachineController : MonoBehaviour
         }
     }
 
-
     public void StartQuota()
     {
-        if (currentRound >= rounds.Count)
-        {
-            // addiction end
-            Debug.Log("Succumbed to addiction");
-            return;
-        }
-
         playerController.points = 0;
 
         SetQuota();
@@ -315,9 +351,10 @@ public class GachaMachineController : MonoBehaviour
 
     public void SubmitQuota()
     {
-        if (currentRound+1 >= rounds.Count)
+        if (currentRound+1 >= rounds.Count && !isLastQuota)
         { 
             isLastQuota = true;
+            return;
         }
 
         if (currentQuota == 0)
@@ -335,10 +372,19 @@ public class GachaMachineController : MonoBehaviour
 
         if (playerController.points < rounds[currentRound].quotaValue)
         {
-            // not enough points, should be going to get more
+            // Family End
             GameManager.Instance.isBadEnd = false;
             SceneManager.LoadScene("GameOver");
             return;
+        }
+
+        if (playerController.points >= rounds[currentRound].quotaValue && isLastQuota)
+        {
+            // Gamba end
+            GameManager.Instance.isBadEnd = true;
+            SceneManager.LoadScene("GameOver");
+            return;
+
         }
 
         if (playerController.points >= rounds[currentRound].quotaValue)

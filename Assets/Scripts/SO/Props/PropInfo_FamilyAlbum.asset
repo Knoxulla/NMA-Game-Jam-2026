@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PropInfo_FamilyAlbum
   m_EditorClassIdentifier: Assembly-CSharp::PropInfo
   itemName: Family Album
-  rarity: 1
-  quotaValue: 10
+  rarity: 2
+  quotaValue: 70
   itemPrefabs:
   - {fileID: 1291650538605431844, guid: 114becd52f33dde4087fb71c423b05ff, type: 3}

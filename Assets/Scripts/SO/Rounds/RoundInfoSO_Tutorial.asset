@@ -14,25 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoundInfoSO
   items:
   - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
-  - {fileID: 11400000, guid: dec378bbb005e4a4eb7d07c33326c135, type: 2}
-  - {fileID: 11400000, guid: dec378bbb005e4a4eb7d07c33326c135, type: 2}
-  - {fileID: 11400000, guid: dec378bbb005e4a4eb7d07c33326c135, type: 2}
-  - {fileID: 11400000, guid: dec378bbb005e4a4eb7d07c33326c135, type: 2}
-  - {fileID: 11400000, guid: dec378bbb005e4a4eb7d07c33326c135, type: 2}
-  - {fileID: 11400000, guid: dec378bbb005e4a4eb7d07c33326c135, type: 2}
-  - {fileID: 11400000, guid: dec378bbb005e4a4eb7d07c33326c135, type: 2}
   - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
   - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
   - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
   - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
-  - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
-  - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
-  - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
-  - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
-  - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
-  - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
-  - {fileID: 11400000, guid: 7f3dd9e4e825a154ca332c6e9c704559, type: 2}
-  - {fileID: 11400000, guid: dec378bbb005e4a4eb7d07c33326c135, type: 2}
+  - {fileID: 11400000, guid: aaf0512d4d5175f45961b295e15ad830, type: 2}
+  - {fileID: 11400000, guid: aaf0512d4d5175f45961b295e15ad830, type: 2}
+  - {fileID: 11400000, guid: aaf0512d4d5175f45961b295e15ad830, type: 2}
+  - {fileID: 11400000, guid: 60b55af788ad3154ba6d05b78eff32b3, type: 2}
+  - {fileID: 11400000, guid: 60b55af788ad3154ba6d05b78eff32b3, type: 2}
+  - {fileID: 11400000, guid: 60b55af788ad3154ba6d05b78eff32b3, type: 2}
+  - {fileID: 11400000, guid: 60b55af788ad3154ba6d05b78eff32b3, type: 2}
   rewardPosibilities:
   - {fileID: 11400000, guid: 88154a1557ebab541b0824d1f3092ea8, type: 2}
   - {fileID: 11400000, guid: f8b89c36a3229ef4bbe97ab3b994da78, type: 2}
@@ -42,6 +34,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 98f124882c3f45d42afbed46b5503c24, type: 2}
   quotaValue: 10
   timeLimit: 60
-  startRoundText: Bring me divine sustenance so that my roots shall flourish. Your
-    efforts will be rewarded.
+  startRoundText: Roll your ball to collect items and bring them to me. They are
+    divine sustenance that will allow my roots to flourish. Your efforts will be
+    rewarded.
   endRoundText: As promised, a reward for your hard work.

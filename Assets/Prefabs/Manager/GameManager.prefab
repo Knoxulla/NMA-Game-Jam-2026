@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95c92afdeecd7f4ab0ce47d82aa219c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  isBadEnd: 1
   VolumeManager: {fileID: 6237423350927244098}
+  optMenu: {fileID: 4109112374756206006, guid: fe1b3b7d93ec37f4ba0a1e35eb245cc0, type: 3}
 --- !u!1 &5662686051104798950
 GameObject:
   m_ObjectHideFlags: 0

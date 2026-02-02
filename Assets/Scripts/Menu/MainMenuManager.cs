@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] Button btn_play;
     [SerializeField] Button btn_ExitGame;
     [SerializeField] Button btn_OpenOptions;
+    [SerializeField] Button btn_OpenCredits;
     [SerializeField] GameObject optionsMenu;
 
     private void Awake()
@@ -29,6 +30,7 @@ public class MainMenuManager : MonoBehaviour
         btn_play.onClick.AddListener(PlayGame);
         btn_ExitGame.onClick.AddListener(ExitGame);
         btn_OpenOptions.onClick.AddListener(OpenOptions);
+        btn_OpenCredits.onClick.AddListener(OpenCredits);
     }
 
     private void PlayGame()
@@ -45,6 +47,11 @@ public class MainMenuManager : MonoBehaviour
     private void ExitGame()
     { 
         Application.Quit();
+    }
+
+    private void OpenCredits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 
 

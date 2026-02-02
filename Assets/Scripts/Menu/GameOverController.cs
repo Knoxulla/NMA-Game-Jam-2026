@@ -8,19 +8,19 @@ using System.Collections;
 public class GameOverController : MonoBehaviour
 {
     public TMP_Text endTXT;
-    public Button replayBTN;
-    public Button mainMenuBTN;
     public VideoPlayer videoPlayer;
     [SerializeField] VideoClip clipGoodEnd;
     [SerializeField] VideoClip clipBadEnd;
     [SerializeField] GameObject vidImage;
     [SerializeField] Animator endCS_Controller;
-    [SerializeField] GachaMachineController gachaMachine;
+    [SerializeField] Animator gachaMachineAnim;
     
 
     const string BAD_END_BOOL_KEY = "isBadEnd";
     const string PLAY_CS_TRIGGER_KEY = "playCS";
     const string FADE_CS_TRIGGER_KEY = "fadeCS";
+    const string FADE_TEXT_TRIGGER_KEY = "fadeText";
+    const string ANGRY_KEY = "isAngry";
 
     private void Start()
     {
@@ -32,19 +32,8 @@ public class GameOverController : MonoBehaviour
 
         // when vid ends, do credits
 
-        replayBTN.onClick.AddListener(ReplayGame);
-        mainMenuBTN.onClick.AddListener(BackToMain);
     }
 
-    private void BackToMain()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-    private void ReplayGame()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
 
     private void SetEndingValues()
     {
@@ -52,20 +41,14 @@ public class GameOverController : MonoBehaviour
 
         if (GameManager.Instance.isBadEnd)
         {
-
-            //videoPlayer.clip = clipBadEnd;
-            //videoPlayer.Play();
-
-            //endCS_Controller.SetBool();
-
-            endTXT.text = "ending 1";
+            endTXT.text = "Dear roller, you have completed your journey and sustained the world’s foundation.\r\n";
         }
         else
         {
             vidImage.SetActive(true);
             videoPlayer.clip = clipGoodEnd;
             videoPlayer.Play();
-            endTXT.text = "ending 2";
+            endTXT.text = "Dear roller, you discovered that the machine is a lie, and its foundation a facade. \r\n";
             vidLength = (float)videoPlayer.clip.length;
         }
 
@@ -82,7 +65,7 @@ public class GameOverController : MonoBehaviour
 
         if (GameManager.Instance.isBadEnd)
         {
-            gachaMachine.MakeAngry();
+            gachaMachineAnim.SetTrigger(ANGRY_KEY);
             videoLength = endCS_Controller.GetCurrentAnimatorClipInfo(0).Length;
         }
 
@@ -95,7 +78,14 @@ public class GameOverController : MonoBehaviour
         yield return new WaitForSeconds(length);
         vidImage.SetActive(false);
 
+        yield return new WaitForSeconds(10f);
 
+        endCS_Controller.SetTrigger(FADE_TEXT_TRIGGER_KEY);
+
+        length = endCS_Controller.GetCurrentAnimatorClipInfo(0).Length;
+        yield return new WaitForSeconds(length);
+
+        SceneManager.LoadScene("Credits");
         // turn on a credit object here that goes through all our names and roles w/ btn at the bottom for navigation
     }
 
