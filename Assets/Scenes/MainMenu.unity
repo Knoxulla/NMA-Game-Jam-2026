@@ -875,7 +875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1591765315
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1819,6 +1819,7 @@ MonoBehaviour:
   btn_play: {fileID: 93314695}
   btn_ExitGame: {fileID: 1798138530}
   btn_OpenOptions: {fileID: 883901357}
+  btn_OpenCredits: {fileID: 0}
   optionsMenu: {fileID: 4109112374756206006, guid: fe1b3b7d93ec37f4ba0a1e35eb245cc0, type: 3}
 --- !u!1001 &1010345388788116407
 PrefabInstance:
