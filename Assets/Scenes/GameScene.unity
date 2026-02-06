@@ -7564,8 +7564,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -145.99997}
-  m_SizeDelta: {x: -56.46881, y: -325.32156}
+  m_AnchoredPosition: {x: 0, y: -172}
+  m_SizeDelta: {x: -56.4688, y: -368.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591232513
 MonoBehaviour:
@@ -7587,10 +7587,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Test dsfhilddddddddddddddddddddddddddddddddddddddddddddddddsafs
-
-    sfdgvddddddddddddddddddddddddddddddddddddddddddddddddddddsfgdfgdf
-    safdggggggggggggggggggggggggggggggggggggggfdssssssssssssssss sfdgdddddddddddddddddddddddddddddddddddddddddddddddddddddddfdsg'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
